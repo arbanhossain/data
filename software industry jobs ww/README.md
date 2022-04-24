@@ -1,3 +1,7 @@
+## Software Industry Jobs Worldwide
+Data collected using Google's job engine.
+Some of the numbers might have been readjusted afterwards for clarity.
+
 ## Table
 |lang/jobs|backend_developer|desktop_application|DevOps|frontend_developer|mobile_app_developer|programmer|software_developer|software_engineer|web_developer|
 |---|---|---|---|---|---|---|---|---|---|
@@ -56,4 +60,5 @@
 ## Todo
 - [ ] add more entries in `tools`
 - [ ] add dedicated category for systems programmers
+- [ ] write rules for `go`, `c` and other terms that might be included in regular text
 - [ ] do some visualization
