@@ -19,17 +19,19 @@ Some of the numbers might have been readjusted afterwards for clarity.
 |swift|2|0|1|0|32|1|4|1|0|
 |kotlin|3|0|0|1|24|1|4|3|0|
 |typescript|6|2|4|23|1|1|6|13|5|
+|---|---|---|---|---|---|---|---|---|---|
 |.net|17|4|6|8|3|10|24|11|12|
 |aws|44|11|58|13|5|8|38|43|17|
 |react|12|1|4|54|9|2|19|23|26|
 |docker|26|1|39|5|0|3|17|23|7|
 |sql|10|6|7|2|4|25|23|11|4|
-|postgresql|8|0|6|1|2|2|9|4|8|
+|postgresql|24|0|16|3|6|5|26|17|18|
 |angular|12|4|1|35|5|3|15|17|18|
 |git|29|5|49|40|32|18|33|34|44|
 |mysql|19|7|11|3|4|3|14|12|23|
 |kubernetes|16|1|46|3|0|2|13|21|4|
-|nodejs|5|0|0|6|1|0|5|4|2|
+|nodejs|13|0|4|18|3|0|12|8|8|
+|redux|4|1|0|17|0|0|0|0|5|
 |azure|18|4|33|6|2|4|12|18|5|
 |gcp|5|0|17|0|3|5|5|10|2|
 |nosql|15|0|3|2|1|1|7|12|4|
@@ -46,6 +48,8 @@ Some of the numbers might have been readjusted afterwards for clarity.
 |flask|7|0|2|0|0|0|1|0|1|
 |flutter|0|2|0|3|10|0|1|0|0|
 |firebase|4|0|0|0|4|0|1|0|2|
+|graphql|4|0|1|7|3|1|3|6|3|
+|xamarin|0|0|0|0|6|0|1|0|0|
 
 ## Observations
 - Desktop application jobs have too few entries
@@ -63,6 +67,6 @@ Some of the numbers might have been readjusted afterwards for clarity.
 
 ## Todo
 - [ ] add more entries in `tools`
-- [ ] add dedicated category for systems programmers
-- [ ] write rules for `go`, `c` and other terms that might be included in regular text
+- [ ] add dedicated category for systems programmers, game development
+- [ ] write rules for `go`, `c`, `unity` and other terms that might be included in regular text
 - [ ] do some visualization
