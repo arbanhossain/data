@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualization</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+
+<body>
+  <div id="institute-types-by-div">
+
+  </div>
+
+  <script>
+    let data = [{ 'division': 'DHAKA', 'School': 3564, 'Madrasha': 1225, 'College': 656, 'Technical and Vocational': 316, 'School and College': 311 }, { 'division': 'RAJSHAHI', 'School': 2830, 'Madrasha': 1526, 'College': 561, 'Technical and Vocational': 527, 'School and College': 181 }, { 'division': 'CHITTAGONG', 'School': 3072, 'Madrasha': 1655, 'College': 452, 'Technical and Vocational': 160, 'School and College': 170 }, { 'division': 'RANGPUR', 'School': 2974, 'Madrasha': 1403, 'College': 434, 'Technical and Vocational': 347, 'School and College': 212 }, { 'division': 'KHULNA', 'School': 2749, 'Madrasha': 1181, 'College': 457, 'Technical and Vocational': 262, 'School and College': 120 }, { 'division': 'BARISAL', 'School': 1625, 'Madrasha': 1170, 'College': 258, 'Technical and Vocational': 121, 'School and College': 82 }, { 'division': 'MYMENSINGH', 'School': 1467, 'Madrasha': 754, 'College': 215, 'Technical and Vocational': 170, 'School and College': 50 }, { 'division': 'SYLHET', 'School': 952, 'Madrasha': 400, 'College': 157, 'Technical and Vocational': 37, 'School and College': 98 }];
+
+    let colors = ["#F9C80E", "#246EB9", "#E06C9F", "#662E9B", "#7CEA9C"];
+    let fields = ['School', 'Madrasha', 'College', 'Technical and Vocational', 'School and College']
+
+    let divs = data.map(e => e.division);
+
+    let margin = { top: 20, right: 200, bottom: 35, left: 50 };
+    let width = 850;
+    height = 300;
+
+    var svg = d3.select("#institute-types-by-div")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+
+
+    svg.append("text")
+      .attr("x", width / 2)
+      .attr("y", 1)
+      .attr("text-anchor", "middle")
+      .style("font-size", "24px")
+      .text(`Distribution of educational institutes in each division`);
+
+    let x = d3.scaleBand().domain(divs).range([0, width]).padding(0.2);
+
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x).tickSizeOuter(0));
+
+    var y = d3.scaleLinear()
+      .domain([0, 10000])
+      .range([height, 0]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    var color = d3.scaleOrdinal()
+      .domain(fields)
+      .range(colors)
+
+    let stackedData = d3.stack().keys(fields)(data)
+
+    svg.append("g")
+      .selectAll("g")
+      // Enter in the stack data = loop key per key = group per group
+      .data(stackedData)
+      .enter().append("g")
+      .attr("fill", function (d) { return color(d.key); })
+      .selectAll("rect")
+      // enter a second time = loop subgroup per subgroup to add all rectangles
+      .data(function (d) { return d; })
+      .enter().append("rect")
+      .attr("x", function (d) { return x(d.data.division); })
+      .attr("y", function (d) { return y(d[1]); })
+      .attr("height", function (d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth() / 1.5)
+
+    var legend = svg.selectAll(".legend")
+      .data(colors)
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function (d, i) { return "translate(0," + i * 19 + ")"; });
+
+    legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", function (d, i) { return colors.slice().reverse()[i]; });
+
+    legend.append("text")
+      .attr("x", width + 5)
+      .attr("y", 8)
+      .attr("dy", ".35em")
+      .style("text-anchor", "start")
+      .text(function (d, i) {
+        switch (i) {
+          case 0: return "School and College";
+          case 1: return "Technical and Vocational";
+          case 2: return "College";
+          case 3: return "Madrasha";
+          case 4: return "School";
+        }
+      });
+  </script>
+</body>
+
+</html>

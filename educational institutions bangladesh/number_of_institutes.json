@@ -1,0 +1,42 @@
+[
+  {
+    "id": 30,
+    "division": "DHAKA",
+    "count": 6072
+  },
+  {
+    "id": 50,
+    "division": "RAJSHAHI",
+    "count": 5625
+  },
+  {
+    "id": 20,
+    "division": "CHITTAGONG",
+    "count": 5509
+  },
+  {
+    "id": 55,
+    "division": "RANGPUR",
+    "count": 5370
+  },
+  {
+    "id": 40,
+    "division": "KHULNA",
+    "count": 4769
+  },
+  {
+    "id": 10,
+    "division": "BARISAL",
+    "count": 3256
+  },
+  {
+    "id": 45,
+    "division": "MYMENSINGH",
+    "count": 2656
+  },
+  {
+    "id": 60,
+    "division": "SYLHET",
+    "count": 1644
+  }
+]
